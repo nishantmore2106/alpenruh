@@ -1,0 +1,218 @@
+/* ==========================================================================
+   ALPENRUH — Frosted Glass Pill Navbar with Tactile Green CTA (Navbar.css)
+   ========================================================================== */
+
+.alpenruh-navbar-wrapper {
+  position: fixed;
+  top: 18px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .alpenruh-navbar-wrapper {
+    top: 22px;
+    padding: 0 36px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .alpenruh-navbar-wrapper {
+    padding: 0 56px;
+  }
+}
+
+/* Frosted milky-glass pill container matching the uploaded reference texture */
+.alpenruh-navbar-bar {
+  pointer-events: auto;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1320px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px 0 28px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.68) 0%,
+    rgba(244, 241, 234, 0.52) 100%
+  );
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 9999px;
+  color: #16231a;
+  box-shadow:
+    0 10px 30px -6px rgba(18, 28, 22, 0.16),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 1.5px rgba(255, 255, 255, 0.35);
+  transition:
+    background 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.alpenruh-navbar-bar.is-scrolled {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(245, 242, 235, 0.72) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 14px 36px -8px rgba(18, 28, 22, 0.22),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.95);
+}
+
+/* Left Brand Title */
+.alpenruh-navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #142018;
+  transition: opacity 0.25s ease;
+}
+
+.alpenruh-navbar-brand:hover {
+  opacity: 0.78;
+}
+
+/* Centered Navigation Links */
+.alpenruh-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 2px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: #1f2e24;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.alpenruh-nav-link:hover {
+  color: #0d1710;
+}
+
+.alpenruh-nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  width: 100%;
+  height: 1.5px;
+  border-radius: 2px;
+  background-color: #203c2a;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.alpenruh-nav-link:hover::after,
+.alpenruh-nav-link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Right Tactile 3D Forest-Green Pill CTA Button (replacing the reference's blue with green) */
+.alpenruh-green-pill-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 46px;
+  padding: 0 9px 0 22px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #315a3f 0%, #203c2a 100%);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  border: 1px solid rgba(32, 60, 42, 0.85);
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.34),
+    inset 0 -2px 4px rgba(10, 22, 14, 0.45),
+    0 4px 12px rgba(32, 60, 42, 0.28);
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease;
+}
+
+.alpenruh-green-pill-cta:hover {
+  background: linear-gradient(180deg, #386648 0%, #244530 100%);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.42),
+    inset 0 -2px 4px rgba(10, 22, 14, 0.5),
+    0 6px 16px rgba(32, 60, 42, 0.36);
+  transform: translateY(-0.5px);
+}
+
+/* Inner soft-mint/ivory circular arrow badge inside the green pill button */
+.alpenruh-green-pill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: #dce7d8;
+  color: #203c2a;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.14),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.alpenruh-green-pill-cta:hover .alpenruh-green-pill-icon {
+  transform: translateX(2px);
+}
+
+/* Mobile circular menu button */
+.alpenruh-mobile-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  border: 1px solid rgba(32, 60, 42, 0.18);
+  background: rgba(255, 255, 255, 0.55);
+  color: #16231a;
+  transition: all 0.25s ease;
+}
+
+.alpenruh-mobile-toggle:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Mobile dropdown menu */
+.alpenruh-menu-overlay {
+  pointer-events: auto;
+  margin: 10px auto 0;
+  max-width: 1320px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(245, 242, 234, 0.82) 100%
+  );
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 24px;
+  padding: 22px 24px;
+  color: #16231a;
+  box-shadow: 0 20px 44px -10px rgba(18, 28, 22, 0.22);
+}
